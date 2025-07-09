@@ -65,3 +65,13 @@ document.getElementById("downloadExcel").addEventListener("click", () => {
   // Export
   XLSX.writeFile(wb, "company_data.xlsx");
 });
+
+
+
+function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToBottom() {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }

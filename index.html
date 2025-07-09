@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TEC Data Extraction</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="top">
     <h1>TEC Data Extraction & Filtering</h1>
     <div class="controls">
       <label for="filter">Show:</label>
@@ -27,11 +26,16 @@
       <tbody id="tableBody"></tbody>
     </table>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></>
+
+  <!-- Scroll Buttons -->
+  <div class="scroll-buttons">
+    <button onclick="scrollToTop()">↑ Top</button>
+    <button onclick="scrollToBottom()">↓ Down</button>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="html2pdf.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
