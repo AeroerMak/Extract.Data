@@ -2,10 +2,10 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
-  background: #f4f4f4;
+  background: #f8fbff;
 }
 .container {
-  background: #fff;
+  background: #f1f0f0;
   padding: 20px;
   border-radius: 10px;
 }
@@ -17,7 +17,7 @@ table {
   border-collapse: collapse;
 }
 thead {
-  background: #007BFF;
+  background: #1d82ee;
   color: white;
 }
 th, td {

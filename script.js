@@ -51,3 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
+document.getElementById("downloadExcel").addEventListener("click", () => {
+  const table = document.getElementById("companyTable");
+
+  // Convert table to worksheet
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.table_to_sheet(table);
+  XLSX.utils.book_append_sheet(wb, ws, "Companies");
+
+  // Export
+  XLSX.writeFile(wb, "company_data.xlsx");
+});
