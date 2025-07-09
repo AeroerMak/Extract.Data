@@ -3,82 +3,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Company Directory Filter</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEC Data Extraction</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-900 text-white min-h-screen p-6">
-  <div class="max-w-5xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-center">📁 Company Directory Filter</h1>
-
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="Search by company name, email, or phone..."
-      class="w-full p-3 mb-6 rounded bg-gray-800 border border-gray-700 placeholder-gray-400"
-    />
-
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-sm">
-        <thead>
-          <tr class="bg-gray-700 text-left">
-            <th class="p-3">Company Name</th>
-            <th class="p-3">Email</th>
-            <th class="p-3">Phone</th>
-            <th class="p-3">Address</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody" class="bg-gray-800 divide-y divide-gray-700">
-          <!-- Rows will be populated here -->
-        </tbody>
-      </table>
+<body>
+  <div class="container">
+    <h1>TEC Data Extraction & Filtering</h1>
+    <div class="controls">
+      <label for="filter">Show:</label>
+      <select id="filter">
+        <option value="all">All Fields</option>
+        <option value="email">Email Only</option>
+        <option value="phone">Phone Only</option>
+        <option value="address">Address Only</option>
+      </select>
+      <button id="download">Download PDF</button>
     </div>
+    <table id="companyTable">
+      <thead>
+        <tr id="tableHeader"></tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
   </div>
-
-  <script>
-    const csvUrl = 'cleaned_company_data.csv';
-
-    async function loadCSV() {
-      const response = await fetch(csvUrl);
-      const text = await response.text();
-      const rows = text.trim().split('\n').slice(1);
-
-      return rows.map(row => {
-        const [name, email, phone, address] = row.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(s => s.replace(/"/g, ''));
-        return { name, email, phone, address };
-      });
-    }
-
-    function renderTable(data) {
-      const tbody = document.getElementById('tableBody');
-      tbody.innerHTML = '';
-      data.forEach(row => {
-        tbody.innerHTML += `
-          <tr>
-            <td class="p-3">${row.name}</td>
-            <td class="p-3">${row.email}</td>
-            <td class="p-3">${row.phone}</td>
-            <td class="p-3">${row.address}</td>
-          </tr>
-        `;
-      });
-    }
-
-    document.getElementById('searchBox').addEventListener('input', async (e) => {
-      const searchTerm = e.target.value.toLowerCase();
-      const allData = await loadCSV();
-      const filtered = allData.filter(row =>
-        row.name.toLowerCase().includes(searchTerm) ||
-        row.email.toLowerCase().includes(searchTerm) ||
-        row.phone.toLowerCase().includes(searchTerm)
-      );
-      renderTable(filtered);
-    });
-
-    window.onload = async () => {
-      const data = await loadCSV();
-      renderTable(data);
-    };
-  </script>
+  <script src="html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+

@@ -1,0 +1,29 @@
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
+}
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.controls {
+  margin-bottom: 15px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  background: #007BFF;
+  color: white;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
