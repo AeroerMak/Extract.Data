@@ -20,8 +20,6 @@ You are welcome to:
 | Example Company B   | contact@example.com     | +60 7-8765 4321| Johor Bahru, Malaysia       |
 | Example Company C   | support@example.com     | +60 4-2233 4455| George Town, Penang, Malaysia|
 
-## 📜 License
-This project is licensed under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 Contributions are welcome!  
